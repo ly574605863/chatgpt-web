@@ -87,7 +87,7 @@ router.get('/wx_token', async (req, res) => {
     const timestamp = req.query.timestamp
     const nonce = req.query.nonce
     const echostr = req.query.echostr
-
+    global.console.log('req.query: ', req.query)
     const wx_token = '42AIDEV'
     const str = [wx_token, timestamp, nonce].sort().join('')
     const sha1 = crypto.createHash('sha1').update(str).digest('hex')
